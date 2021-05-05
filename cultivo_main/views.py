@@ -23,8 +23,7 @@ count=0
 
 #to get the current temperature and weather information
 def api_for_weather(place):
-    #&appid=26215a2614573c7ce3405f3338415d10
-    result=requests.get('http://api.openweathermap.org/data/2.5/weather?q='+place+'&appid=ee296a3f31b73c206a6ee4e0fa77d198')
+    result=requests.get('http://api.openweathermap.org/data/2.5/weather?q='+place+'&appid=xxxxxxxxxxxxxxxxxxxxxxxxxx')  #openweathermap key here
     data=result.json()
     return data
 
@@ -32,7 +31,7 @@ def api_for_weather(place):
 
 def api_for_weather_2(lat,longi):
     
-    result=requests.get('http://api.openweathermap.org/data/2.5/weather?lat='+str(lat)+'&lon='+str(longi)+'&appid=ee296a3f31b73c206a6ee4e0fa77d198')
+    result=requests.get('http://api.openweathermap.org/data/2.5/weather?lat='+str(lat)+'&lon='+str(longi)+'&appid=xxxxxxxxxxxxxxxxxxxxxxxxx')  #openweathermap key here
     data=result.json()
     return data
 
@@ -49,9 +48,7 @@ def get_soil_info(place,coord):
         now = datetime.datetime.now()
         start_date=str(now.year)+'-'+str(now.month-1)+'-'+str(now.day)
         end_date=str(now.year)+'-'+str(now.month+1)+'-'+str(now.day)
-    #    result=requests.get('https://api.weatherbit.io/v2.0/history/agweather?lat='+str(coord[0])+'&lon='+str(coord[1])+'&start_date='+start_date+'&end_date='+end_date+'&key=283a77fe5cbe46718430e4d5418be6c1')
-        #&key=3d6dc8552cb74208866db831e6cc7724
-        result=requests.get('https://api.weatherbit.io/v2.0/forecast/agweather?lat='+str(coord[0])+'&lon='+str(coord[1])+'&key=17783978e8834ecf8736f6835979f92e')
+        result=requests.get('https://api.weatherbit.io/v2.0/forecast/agweather?lat='+str(coord[0])+'&lon='+str(coord[1])+'&key=xxxxxxxxxxxxxxxxxxxxxxxx')  #weatherbit key here
         data=result.json()
         return data
     
@@ -76,7 +73,7 @@ def get_soil_info(place,coord):
 def geocoding(place):
     coord=[]
     #&key=217e890a4fed4cc780a83c8cce2abf14
-    result=requests.get('https://api.opencagedata.com/geocode/v1/json?q='+place+'&key=b1b7f839cfc6485b8d5a7e798fd7acce')
+    result=requests.get('https://api.opencagedata.com/geocode/v1/json?q='+place+'&key=xxxxxxxxxxxxxxxxxxxxxxxx')  #opencagedata key here
     data=result.json()
     coord.append(data['results'][0]['geometry']['lat'])
     coord.append(data['results'][0]['geometry']['lng'])
@@ -96,7 +93,6 @@ def print_temp_details(data):
                'pressure':str(data['main']['pressure'])+'hPa',
                'windspeed':str(wind)+'km/h',
                'winddirection':str(dire)
-            #    'visibility':str(data['visibility'])+' metres',
                }
        
        return values
@@ -215,17 +211,6 @@ def cultemplate(request):
     return render(request, 'cultivo_main/footer.html',{'firstname':firstname, 'lastname':lastname, 'email':email, 'phone':phone})
 
 
-'''class TemplateView(generic.TemplateView):
-    template_name='cultivo_main/footer.html'
-
-class TemplateView2(generic.TemplateView):
-    template_name='cultivo_main/contact.html'
-
-class TemplateView3(generic.TemplateView):
-    template_name='cultivo_main/story.html'
-
-class TemplateView4(generic.TemplateView):
-    template_name='cultivo_main/services.html'  '''
 
 
 def work(request):
