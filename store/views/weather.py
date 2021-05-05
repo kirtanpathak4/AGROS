@@ -15,7 +15,7 @@ def weathsms():
 
         coordinates = {"lat": i.latitude, "lon": i.longitude}
         #print(coordinates)
-        key = "f2c5f105d6e526846a31c4898f10480f"
+        key = ""  #openweathermap key here
 
         wetherApi = "https://api.openweathermap.org/data/2.5/weather"
 
@@ -38,7 +38,7 @@ def weathsms():
             url = "https://www.fast2sms.com/dev/bulk"
             payload = "sender_id=FSTSMS&message=Dear farmer, be Alert. The current Weather is "+str(weather_description)+" ,the Temperature is "+str("{:.2f}".format(temp))+" C, the Wind speed is "+str("{:.2f}".format(wind_speed))+" km/hr and the Humidity is "+str(humidity)+" %.&language=english&route=p&numbers="+i.phone+""
             headers = {
-            'authorization': "ZvnoPHc7DW94f3uOUKsQ0I2qXryJTkC6NRxjzVLeBAibwd8GSgC0ybnTF2KkRlwYfG4PadALr3Nh1QMD",
+            'authorization': "",  #Fast2SMS Authorization key here
             'Content-Type': "application/x-www-form-urlencoded",
             'Cache-Control': "no-cache",
             }
