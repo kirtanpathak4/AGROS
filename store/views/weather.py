@@ -28,12 +28,6 @@ def weathsms():
         humidity = weather["main"]["humidity"]   #int
 
 
-        '''print(weather_description)
-        print(" ")
-        print(temp)
-        print(" ")
-        print(weather)'''
-        
 
 
         if temp > 50.0 or wind_speed > 10.0 or humidity > 60:
@@ -52,19 +46,15 @@ def weathsms():
             print(response.text)
 
 
-
-#weathsms()
+while(1):
+    weathsms()
 
 def weatherdatas(request):
 
 
-    #weathsms()
-
-
-
     ipinfo = requests.get("https://ipapi.co/json").json()
-    coordinates = {"lat": 22.3005, "lon": 73.204}
-    #coordinates = {"lat": ipinfo["latitude"], "lon": ipinfo["longitude"]}
+    #coordinates = {"lat": 22.3005, "lon": 73.204}
+    coordinates = {"lat": ipinfo["latitude"], "lon": ipinfo["longitude"]}
 
     key = "f2c5f105d6e526846a31c4898f10480f"
 
@@ -76,10 +66,10 @@ def weatherdatas(request):
     #threading.Timer(1000*60, showWeather()).start()
 
 
-    #latitude =  ipinfo["latitude"]
-    #longitude = ipinfo["longitude"]
-    latitude = 22.3005
-    longitude = 73.204
+    latitude =  ipinfo["latitude"]
+    longitude = ipinfo["longitude"]
+    #latitude = 22.3005
+    #longitude = 73.204
     
     weather_description = weather["weather"][0]["description"]
     weather_main = weather["weather"][0]["main"]
