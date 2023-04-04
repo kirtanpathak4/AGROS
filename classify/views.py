@@ -18,15 +18,9 @@ model_graph = Graph()
 with model_graph.as_default():
 	tf_session = Session()
 	with tf_session.as_default():
-
-
-
-
 		with open('cnn_model.pkl', 'rb') as f:
-    	 model = pickle.load(f)
+    	 		model = pickle.load(f)
 		
-		
-
 IMG_WIDTH = 224
 IMG_HEIGHT = 224
 
@@ -110,9 +104,6 @@ def index_1(request):
 
 	return render(request, "index_1.html",{'firstname':firstname, 'lastname':lastname, 'email':email, 'phone':phone})
 
-
-
-
 def predictImage(request):
 	#print(request.POST.dict())
 	fileObj = request.FILES["document"]
@@ -162,15 +153,6 @@ def predictImage(request):
 		email = entry.email
 		phone = entry.phone
 	
-
-
-
-	# prediction = labels[str(np.argmax(proba[0]))]
-	 #Getting currently logged-in user maintaining Session
-
-
-
-
 
 	context={
 	"filePathName":filePathName,
