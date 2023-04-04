@@ -22,12 +22,10 @@ with model_graph.as_default():
 
 
 
-		#with open('cnn_model.pkl', 'rb') as f:
-    	 #model = pickle.load(f)
-		model = load_model("classify/AlexNetModel.hdf5")
-		# Please use the below link to download model from drive because it is of large size so
-		# i cannot use it here. 
-		#model = "https://drive.google.com/file/d/1uoa7_WWQXaahpnAB6JbqNZV6Kr9RKm2Z/view?usp=sharing"
+		with open('cnn_model.pkl', 'rb') as f:
+    	 model = pickle.load(f)
+		
+		
 
 IMG_WIDTH = 224
 IMG_HEIGHT = 224
